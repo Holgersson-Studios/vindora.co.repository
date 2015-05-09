@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.vindora.co" name="Vindora.co" version="1.1.4" provider-name="Holgersson Studios GmbH">
+<addon id="plugin.program.vindora.co" name="Vindora.co" version="1.1.5" provider-name="Holgersson Studios GmbH">
     <requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.simplejson"/>
@@ -13,15 +13,10 @@
 		<platform>all</platform>
 		<summary lang="en">Vindora.co</summary>
 		<description lang="en">We from Vindora create a window to nature, wilderness and the adventurous side of life.
-			Crisp creeks, mountains and the green lung of nature will soon be with you wherever you are.</description>
+
+Crisp creeks, mountains and the green lung of nature will soon be with you wherever you are.</description>
 		<license>GNU General Public License, v2</license>
 		<language></language>
 		<email>info@holgersson-studios.de</email>
-	</extension>
-	<extension point="xbmc.addon.repository">
-	 	<name="Vindora.co's Addon Repository">
-		<info compressed="true">https://github.com/Holgersson-Studios/vindora.co.repositoryaddons.xml</info>
-		<checksum>https://github.com/Holgersson-Studios/vindora.co.repositoryaddons.xml.md5</checksum>
-		<datadir zip="true">https://github.com/Holgersson-Studios/vindora.co.repository/</datadir>
 	</extension>
 </addon>
