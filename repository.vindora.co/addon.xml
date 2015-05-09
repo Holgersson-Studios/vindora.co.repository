@@ -1,8 +1,8 @@
 <addon id="repository.vindora.co" name="Vindora.co's Addon Repository" version="1.0.0" provider-name="Holgersson Studios GmbH">
 <extension point="xbmc.addon.repository" name="Vindora.co's Addon Repository">
-<info compressed="true">https://github.com/Holgersson-Studios/vindora.co.repository/blob/master/addons.xml</info>
-<checksum>https://github.com/Holgersson-Studios/vindora.co.repository/blob/master/addons.xml.md5</checksum>
-<datadir zip="true">https://github.com/Holgersson-Studios/vindora.co.repository/blob/master/repository.vindora.co/</datadir>
+<info compressed="true">https://raw.githubusercontent.com/Holgersson-Studios/vindora.co.repository/master/addons.xml</info>
+<checksum>https://raw.githubusercontent.com/Holgersson-Studios/vindora.co.repository/master/addons.xml.md5</checksum>
+<datadir zip="true">https://github.com/Holgersson-Studios/vindora.co.repository/tree/master/repository.vindora.co/</datadir>
 </extension>
 <extension point="xbmc.addon.metadata">
 <summary>Vindora.co's Repository</summary>
