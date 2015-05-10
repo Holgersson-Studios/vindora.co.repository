@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.program.vindora.co" name="Vindora.co" version="1.1.6" provider-name="Holgersson Studios GmbH">
+<addon id="plugin.program.vindora.co" name="Vindora.co" version="1.1.7" provider-name="Holgersson Studios GmbH">
     <requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.simplejson"/>
@@ -13,10 +13,7 @@
 		<platform>all</platform>
 		<summary lang="en">Vindora.co</summary>
 		<description lang="en">We from Vindora create a window to nature, wilderness and the adventurous side of life.
-
-Crisp creeks, mountains and the green lung of nature will soon be with you wherever you are.
-
-Stream our HD and 4k videos to your TV, PC or mobile device.</description>
+Crisp creeks, mountains and the green lung of nature will soon be with you wherever you are. Stream our HD and 4k videos to your TV, PC or mobile device.</description>
 		<license>GNU General Public License, v2</license>
 		<language></language>
 		<email>info@holgersson-studios.de</email>
