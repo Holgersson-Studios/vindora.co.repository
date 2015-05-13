@@ -188,14 +188,14 @@ if grabFTW().getCredentials() == "TRUE":
 				xbmc.PlayList(1).add(url=video, listitem=listitem)
 				
 
-				#print "this is the vid " + video
-				#xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
-				xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
+				print "this is the vid " + video
+				xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
+				#xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
 			if grabFTW().getStatus() != "STP":
 
 				player.play(pl)
 
-			#print "----------------------------xoxoxo-----"
+			print "----------------------------xoxoxo-----"
 			while player.isPlaying():
 				
 				if grabFTW().getStatus() == "PLNWVD":
@@ -218,8 +218,8 @@ if grabFTW().getCredentials() == "TRUE":
 				
 
 						#print "this is the vid " + video
-					#xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
-					xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
+					xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
+					#xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
 			
 					player.play(pl)
 				
@@ -240,6 +240,13 @@ if grabFTW().getCredentials() == "TRUE":
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
 
+				if grabFTW().getStatus() == "SHTDWN":
+					print "STOP______AND_SHUT_DOWN:   "
+					print "CLEAR______THE____STATUS:   " + grabFTW().clearStatus()
+					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
+					xbmc.sleep(8000)
+					xbmc.executebuiltin("xbmc.ShutDown")
+
 					
 
 
@@ -254,7 +261,7 @@ if grabFTW().getCredentials() == "TRUE":
 
 				if playedtime >= por:
 					print "SEEK SEEK SEEK SEEK SEEK SEEK"
-					xbmc.Player().seekTime(10)
+					#xbmc.Player().seekTime(10)
 
 				xbmc.sleep(10000)
 			
