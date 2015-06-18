@@ -5,3 +5,4 @@
 1.2.0 New Logo Added
 1.2.1 Bug fixes
 1.2.2 Bug fixes
+1.2.3 Bug fixes

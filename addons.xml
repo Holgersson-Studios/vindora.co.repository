@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.program.vindora.co" name="Vindora.co" version="1.2.2" provider-name="Holgersson Studios GmbH">
+<addon id="plugin.program.vindora.co" name="Vindora.co" version="1.2.3" provider-name="Holgersson Studios GmbH">
     <requires>
 		<import addon="xbmc.python" version="2.1.0"/>
 		<import addon="script.module.simplejson"/>
