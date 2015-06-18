@@ -2,3 +2,4 @@
 1.1.6 Added to Repository
 1.1.8 Added to Repository
 1.1.9 Playlist Controll
+1.2.0 New Logo Added
