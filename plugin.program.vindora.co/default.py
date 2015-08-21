@@ -14,7 +14,26 @@ import hashlib
 import urllib
 import atexit
 from xml.etree import ElementTree
+import socket
+REMOTE_SERVER = "www.google.com"
 
+try:
+	# see if we can resolve the host name -- tells us if there is
+	# a DNS listening
+	host = socket.gethostbyname(REMOTE_SERVER)
+	# connect to the host -- tells us if the host is actually
+	# reachable
+	s = socket.create_connection((host, 80), 2)
+	print "......--------- HALLELUJA!!!!"
+except:
+	print "......--------- FUCK FUCK FUCK FUCK!!!!"
+	# HOME
+	# xbmc.executebuiltin("XBMC.ActivateWindow(10000)")
+	# ACCESS POINT
+	xbmc.executebuiltin("XBMC.ActivateWindow(10000)")
+	xbmc.executebuiltin('XBMC.Notification("Not Connected to the holy Internet"," Please establish a connection to the Internet.", 6000)')
+	xbmc.sleep(1000000000000000000)
+	
 
 
 #plugin constants
@@ -36,6 +55,8 @@ url = "http://appdev.milchglas-media.de/vindora/php_vindora/getvindora.php?useri
 
 
 
+
+
 class updateArgs:
 
 	def __init__(self, *args, **kwargs):
@@ -47,6 +68,8 @@ class updateArgs:
 				kwargs[key] = urllib.unquote_plus(kwargs[key])
 		self.__dict__.update(kwargs)
 
+
+
 class LoginFTW:
 	
 	def __init__(self, *args, **kwargs):
@@ -54,8 +77,9 @@ class LoginFTW:
 		self.settings = {}
 		self.settings['username'] = SETTINGS.getSetting("username_ftw")
 		self.settings['password'] = SETTINGS.getSetting("password_ftw")
-	
+
 	def checkLogin(self):
+
 		if self.settings['username'] == '' or self.settings['password'] == '':
 			self.resp = xbmcgui.Dialog().yesno("No username/password set!","Vindora.tv requires you to be logged in to view", \
 			"videos.  Would you like to log-in now?")
@@ -259,9 +283,9 @@ if grabFTW().getCredentials() == "TRUE":
 				print "_____________PLAYED-TIME : " + str(playedtime)
 				print "_____________POINT OF RETURN : " + str(por)
 
-				if playedtime >= por:
-					print "SEEK SEEK SEEK SEEK SEEK SEEK"
-					#xbmc.Player().seekTime(10)
+				#if playedtime >= por:
+				#	print "SEEK SEEK SEEK SEEK SEEK SEEK"
+				#	#xbmc.Player().seekTime(10)
 
 				xbmc.sleep(10000)
 			
