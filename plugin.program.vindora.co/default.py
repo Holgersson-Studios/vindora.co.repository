@@ -213,8 +213,8 @@ if grabFTW().getCredentials() == "TRUE":
 				
 
 				print "this is the vid " + video
-				xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
-				#xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
+				#xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
+				xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
 			if grabFTW().getStatus() != "STP":
 
 				player.play(pl)
@@ -242,8 +242,8 @@ if grabFTW().getCredentials() == "TRUE":
 				
 
 						#print "this is the vid " + video
-					xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
-					#xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
+					#xbmc.executebuiltin("xbmc.playercontrol(RepeatAll)")
+					xbmc.executebuiltin("xbmc.playercontrol(RepeatOne)")
 			
 					player.play(pl)
 				
