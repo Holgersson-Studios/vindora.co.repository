@@ -15,7 +15,7 @@ import urllib
 import atexit
 from xml.etree import ElementTree
 import socket
-REMOTE_SERVER = "www.google.com"
+REMOTE_SERVER = "www.vindora.co"
 
 try:
 	# see if we can resolve the host name -- tells us if there is
@@ -165,7 +165,8 @@ class XBMCPlayer(xbmc.Player):
 		print "................................RESUMED"
  
 	def onPlayBackEnded(self):
-		print "................................ENDED"
+		print "................................ENDED, so REBOOT"
+		xbmc.executebuiltin("xbmc.Reboot")
  
 	def onPlayBackStopped(self):
 		print "................................STOPPED"
