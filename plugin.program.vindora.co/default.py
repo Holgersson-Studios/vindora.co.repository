@@ -154,19 +154,17 @@ class XBMCPlayer(xbmc.Player):
 		print "................................TOTAL SECONDS:  " + str(xbmc.Player().getTotalTime())
 		# Sende an PHP
 		
- 
 	def onPlayBackPaused(self):
 		print "................................PAUSED"
 		# if paused load new video
-		
-
  
 	def onPlayBackResumed(self):
 		print "................................RESUMED"
  
 	def onPlayBackEnded(self):
-		print "................................ENDED, so REBOOT"
-		xbmc.executebuiltin("xbmc.Reboot")
+		grabFTW().getHTML()
+		#print "................................ENDED, so REBOOT"
+		#xbmc.executebuiltin("xbmc.Reboot")
  
 	def onPlayBackStopped(self):
 		print "................................STOPPED"
