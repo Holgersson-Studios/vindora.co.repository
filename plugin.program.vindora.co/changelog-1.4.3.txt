@@ -10,3 +10,4 @@
 1.4.0 SEEK-Mode off
 1.4.1 Repeat one, not all
 1.4.2 Reboot after failure
+1.4.2 urllib2 added

@@ -65,7 +65,7 @@ class updateArgs:
 			if value == 'None':
 				kwargs[key] = None
 			else:
-				kwargs[key] = urllib.unquote_plus(kwargs[key])
+				kwargs[key] = urllib2.unquote_plus(kwargs[key])
 		self.__dict__.update(kwargs)
 
 
@@ -119,7 +119,7 @@ class grabFTW:
 		self.currenturl = url
 		htmlSource = None
 		print "[FTW] Finding URL: "+self.currenturl
-		htmlSource = urllib.urlopen(url).read()
+		htmlSource = urllib2.urlopen(url).read()
 		print "[FTW] Got URL."
 		return htmlSource
 
