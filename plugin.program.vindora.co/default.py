@@ -162,7 +162,8 @@ class XBMCPlayer(xbmc.Player):
 		print "................................RESUMED"
  
 	def onPlayBackEnded(self):
-		grabFTW().getHTML()
+		grabFTW()
+		
 		#print "................................ENDED, so REBOOT"
 		#xbmc.executebuiltin("xbmc.Reboot")
  
