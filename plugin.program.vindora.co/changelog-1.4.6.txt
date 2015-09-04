@@ -13,3 +13,4 @@
 1.4.3 urllib2 added
 1.4.4 Loop Bug Fixes
 1.4.5 Loop Bug Fixes
+1.4.6 Loop Bug Fixes

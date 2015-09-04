@@ -17,6 +17,9 @@ from xml.etree import ElementTree
 import socket
 REMOTE_SERVER = "www.vindora.co"
 
+# deprecated:
+# xbmc.executebuiltin("xbmc.Reboot")
+
 try:
 	# see if we can resolve the host name -- tells us if there is
 	# a DNS listening
@@ -162,10 +165,9 @@ class XBMCPlayer(xbmc.Player):
 		print "................................RESUMED"
  
 	def onPlayBackEnded(self):
-		grabFTW()
+		print "................................ENDED, so jump to where the vars are set from scatch"
+		grabFTW().getHTML(url)
 		
-		#print "................................ENDED, so REBOOT"
-		#xbmc.executebuiltin("xbmc.Reboot")
  
 	def onPlayBackStopped(self):
 		print "................................STOPPED"
@@ -220,8 +222,9 @@ if grabFTW().getCredentials() == "TRUE":
 				player.play(pl)
 
 			print "----------------------------xoxoxo-----"
-			while player.isPlaying():
-				
+			
+			while True:
+				print "+++++++++++++++++ BEGIN WHILE TRUE +++++++++++++++++"
 				if grabFTW().getStatus() == "PLNWVD":
 					print "CLEAR______THE____STATUS_____:   " + grabFTW().clearStatus()
 
@@ -271,21 +274,7 @@ if grabFTW().getCredentials() == "TRUE":
 					xbmc.sleep(8000)
 					xbmc.executebuiltin("xbmc.ShutDown")
 
-					
-
-
 				
-				totaltime = xbmc.Player().getTotalTime()
-				playedtime = xbmc.Player().getTime()
-				por = totaltime - 15
-
-				print "_____________TOTALTIME : " + str(totaltime)
-				print "_____________PLAYED-TIME : " + str(playedtime)
-				print "_____________POINT OF RETURN : " + str(por)
-
-				#if playedtime >= por:
-				#	print "SEEK SEEK SEEK SEEK SEEK SEEK"
-				#	#xbmc.Player().seekTime(10)
 
 				xbmc.sleep(10000)
 			
