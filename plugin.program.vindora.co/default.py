@@ -125,9 +125,9 @@ class grabFTW:
 		self.currenturl = url
 		htmlSource = None
 		print "[FTW] Finding URL: "+self.currenturl
-		#old htmlSource = urllib2.urlopen(url).read()
-		htmlSource = requests.get(url)
-		htmlSource = http.request('GET', url)
+		htmlSource = urllib2.urlopen(url).read()
+		#htmlSource = requests.get(url)
+		#htmlSource = http.request('GET', url)
 		print "[FTW] Got URL."
 		return htmlSource
 

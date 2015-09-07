@@ -17,3 +17,4 @@
 1.4.7 urllib3 update
 1.4.8 urllib3 Bug Fixes
 1.4.9 urllib3 Bug Fixes
+1.5.0 urllib3 Bug Fixes
