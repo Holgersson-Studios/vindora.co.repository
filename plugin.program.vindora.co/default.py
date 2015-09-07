@@ -15,6 +15,8 @@ import urllib
 import atexit
 from xml.etree import ElementTree
 import socket
+import requests.packages.urllib3
+from requests.packages.urllib3 import PoolManager, Timeout
 REMOTE_SERVER = "www.vindora.co"
 
 # deprecated:
@@ -35,7 +37,7 @@ except:
 	# ACCESS POINT
 	xbmc.executebuiltin("XBMC.ActivateWindow(10000)")
 	xbmc.executebuiltin('XBMC.Notification("Not Connected to the holy Internet"," Please establish a connection to the Internet.", 6000)')
-	xbmc.sleep(1000000000000000000)
+	xbmc.sleep(100000000)
 	
 
 
@@ -47,6 +49,7 @@ __settings__ = xbmcaddon.Addon(id='plugin.program.vindora.co')
 my_addon = xbmcaddon.Addon('plugin.program.vindora.co')
 addon_dir = xbmc.translatePath( my_addon.getAddonInfo('path') )
 sys.path.append(os.path.join( addon_dir, 'resources', 'lib' ) )
+http = requests.packages.urllib3.PoolManager()
 
 SETTINGS = sys.modules[ "__main__" ].__settings__
 
@@ -122,7 +125,8 @@ class grabFTW:
 		self.currenturl = url
 		htmlSource = None
 		print "[FTW] Finding URL: "+self.currenturl
-		htmlSource = urllib2.urlopen(url).read()
+		#old htmlSource = urllib2.urlopen(url).read()
+		htmlSource = requests.get(url)
 		print "[FTW] Got URL."
 		return htmlSource
 
@@ -180,7 +184,7 @@ class XBMCPlayer(xbmc.Player):
 		#xbmc.executebuiltin("XBMC.Container.Update(path,replace)")
 		xbmc.executebuiltin("XBMC.ActivateWindow(10000)")
 		#xbmc.executebuiltin("XBMC.ActivateWindow(WINDOW_DIALOG_NETWORK_SETUP)")
-		xbmc.sleep(1000000000000000)
+		xbmc.sleep(10000000)
 	#def goodbye(name, adjective):
 	#	print 'Goodbye, %s, it was %s to meet you.' % (name, adjective)
 		
@@ -193,10 +197,11 @@ class XBMCPlayer(xbmc.Player):
 player = XBMCPlayer(xbmc.PLAYER_CORE_DVDPLAYER)
 
 if grabFTW().getCredentials() == "TRUE":
-			response = urllib2.urlopen(url + grabFTW().settings['username'])
-			
-			data = json.loads(response.read())
-			
+			#old response = urllib2.urlopen(url + grabFTW().settings['username'])
+			response = requests.get(url + grabFTW().settings['username'])
+			#old data = json.loads(response.read())
+			data = response.json()
+
 			playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
 			
 			pl = xbmc.PlayList(1)
@@ -228,7 +233,8 @@ if grabFTW().getCredentials() == "TRUE":
 				if grabFTW().getStatus() == "PLNWVD":
 					print "CLEAR______THE____STATUS_____:   " + grabFTW().clearStatus()
 
-					response = urllib2.urlopen(url + grabFTW().settings['username'])
+					#old response = urllib2.urlopen(url + grabFTW().settings['username'])
+					response = requests.get(url + grabFTW().settings['username'])
 			
 					data = json.loads(response.read())
 					pl.clear()
