@@ -19,3 +19,4 @@
 1.4.9 urllib3 Bug Fixes
 1.5.0 urllib3 Bug Fixes
 1.5.1 urllib3 Bug Fixes
+1.5.2 Json Bug Fixes

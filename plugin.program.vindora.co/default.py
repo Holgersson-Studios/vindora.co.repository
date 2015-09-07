@@ -237,7 +237,8 @@ if grabFTW().getCredentials() == "TRUE":
 					#old response = urllib2.urlopen(url + grabFTW().settings['username'])
 					response = requests.get(url + grabFTW().settings['username'])
 			
-					data = json.loads(response.read())
+					#old data = json.loads(response.read())
+					data = response.json()
 					pl.clear()
 			
 					s = 0
