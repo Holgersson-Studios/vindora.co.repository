@@ -125,9 +125,9 @@ class grabFTW:
 		self.currenturl = urlmeta
 		htmlSource = None
 		print "[FTW] Finding URL: "+ urlmeta
-		#kaputt htmlSource = urllib2.urlopen(url).read()
-		r = requests.get(urlmeta)
-		htmlSource = r.text
+		htmlSource = urllib2.urlopen(urlmeta).read()
+		#r = requests.get(urlmeta)
+		#htmlSource = r.text
 		print "[FTW] Got URL." + urlmeta
 		return htmlSource
 
@@ -258,24 +258,24 @@ if grabFTW().getCredentials() == "TRUE":
 			
 					player.play(pl)
 				
-
-				if grabFTW().getStatus() == "RBT":
+					kommando = grabFTW().getStatus()
+				if kommando == "RBT":
 					print "REBOOT______THE____PI_____AND__CLEAR___STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin('XBMC.Notification("OK!"," Now I will reboot the System", 3000)')
 					xbmc.sleep(3000)
 					xbmc.executebuiltin("xbmc.Reboot")
 
-				if grabFTW().getStatus() == "NTWRK":
+				if kommando == "NTWRK":
 					print "GO_TO______THE____NETWORK___STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin("XBMC.RunScript(service.openelec.settings)")
 
-				if grabFTW().getStatus() == "STP":
+				if kommando == "STP":
 					print "GO_TO______THE____HOME___SCREEN:   "
 					print "CLEAR______THE____STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
 
-				if grabFTW().getStatus() == "SHTDWN":
+				if kommando == "SHTDWN":
 					print "STOP______AND_SHUT_DOWN:   "
 					print "CLEAR______THE____STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")

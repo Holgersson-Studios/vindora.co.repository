@@ -21,3 +21,4 @@
 1.5.1 urllib3 Bug Fixes
 1.5.2 Json Bug Fixes
 1.5.3 Urllib2 is deleted
+1.5.4 Bug Fixes
