@@ -191,8 +191,6 @@ class XBMCPlayer(xbmc.Player):
 
 
 
-		
-kommando = grabFTW().getStatus()
  
 player = XBMCPlayer(xbmc.PLAYER_CORE_DVDPLAYER)
 
@@ -258,23 +256,23 @@ if grabFTW().getCredentials() == "TRUE":
 					player.play(pl)
 				
 				
-				if kommando == "RBT":
+				if grabFTW().getStatus() == "RBT":
 					print "REBOOT______THE____PI_____AND__CLEAR___STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin('XBMC.Notification("OK!"," Now I will reboot the System", 3000)')
 					xbmc.sleep(3000)
 					xbmc.executebuiltin("xbmc.Reboot")
 
-				if kommando == "NTWRK":
+				if grabFTW().getStatus() == "NTWRK":
 					print "GO_TO______THE____NETWORK___STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin("XBMC.RunScript(service.openelec.settings)")
 
-				if kommando == "STP":
+				if grabFTW().getStatus() == "STP":
 					print "GO_TO______THE____HOME___SCREEN:   "
 					print "CLEAR______THE____STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
 
-				if kommando == "SHTDWN":
+				if grabFTW().getStatus() == "SHTDWN":
 					print "STOP______AND_SHUT_DOWN:   "
 					print "CLEAR______THE____STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin("xbmc.playercontrol(Stop)")
