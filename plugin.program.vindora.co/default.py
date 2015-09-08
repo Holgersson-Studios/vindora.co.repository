@@ -128,7 +128,6 @@ class grabFTW:
 		htmlSource = urllib2.urlopen(urlmeta).read()
 		#r = requests.get(urlmeta)
 		#htmlSource = r.text
-		print "[FTW] Got URL." + urlmeta
 		return htmlSource
 
 	def getCredentials(self):
