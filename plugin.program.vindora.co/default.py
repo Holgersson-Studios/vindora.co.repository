@@ -258,7 +258,7 @@ if grabFTW().getCredentials() == "TRUE":
 			
 					player.play(pl)
 				
-					kommando = grabFTW().getStatus()
+				kommando = grabFTW().getStatus()
 				if kommando == "RBT":
 					print "REBOOT______THE____PI_____AND__CLEAR___STATUS:   " + grabFTW().clearStatus()
 					xbmc.executebuiltin('XBMC.Notification("OK!"," Now I will reboot the System", 3000)')
