@@ -18,7 +18,7 @@ import socket
 import requests.packages.urllib3
 from requests.packages.urllib3 import PoolManager, Timeout
 REMOTE_SERVER = "www.vindora.co"
-
+manager = PoolManager(10)
 # deprecated:
 # xbmc.executebuiltin("xbmc.Reboot")
 
@@ -121,14 +121,14 @@ class grabFTW:
 		self.urlSENDOUT = 'http://appdev.milchglas-media.de/vindora/php_vindora/from_kodi.php?function_in=' + self.settings['username']
 		self.urlRECEIVE = 'http://appdev.milchglas-media.de/vindora/php_vindora/to_kodi.php?function_return=' + self.settings['username']
 
-	def getHTML(self, url): 
-		self.currenturl = url
+	def getHTML(self, urlmeta): 
+		self.currenturl = urlmeta
 		htmlSource = None
-		print "[FTW] Finding URL: "+self.currenturl
-		htmlSource = urllib2.urlopen(url).read()
-		#htmlSource = requests.get(url)
-		#htmlSource = http.request('GET', url)
-		print "[FTW] Got URL."
+		print "[FTW] Finding URL: "+ urlmeta
+		#kaputt htmlSource = urllib2.urlopen(url).read()
+		r = requests.get(urlmeta)
+		htmlSource = r.text
+		print "[FTW] Got URL." + urlmeta
 		return htmlSource
 
 	def getCredentials(self):
