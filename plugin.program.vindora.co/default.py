@@ -158,7 +158,7 @@ class XBMCPlayer(xbmc.Player):
  
 	def onPlayBackStarted(self):
 		print "................................START"
-		print "................................TOTAL SECONDS:  " + str(xbmc.Player().getTotalTime())
+		#print "................................TOTAL SECONDS:  " + str(xbmc.Player().getTotalTime())
 		# Sende an PHP
 		
 	def onPlayBackPaused(self):
