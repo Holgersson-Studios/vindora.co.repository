@@ -170,8 +170,8 @@ class XBMCPlayer(xbmc.Player):
  
 	def onPlayBackEnded(self):
 		print "................................ENDED, so jump to where the vars are set from scatch"
-		grabFTW().getHTML(url)
-		
+		#grabFTW().getHTML(url)
+		grabFTW()
  
 	def onPlayBackStopped(self):
 		print "................................STOPPED"
