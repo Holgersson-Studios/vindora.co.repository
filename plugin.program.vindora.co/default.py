@@ -28,7 +28,7 @@ try:
 	host = socket.gethostbyname(REMOTE_SERVER)
 	# connect to the host -- tells us if the host is actually
 	# reachable
-	s = socket.create_connection((host, 80), 2)
+	s = socket.create_connection((host, 80), 5)
 	print "......--------- HALLELUJA!!!!"
 except:
 	print "......--------- FUCK FUCK FUCK FUCK!!!!"
@@ -182,9 +182,9 @@ class XBMCPlayer(xbmc.Player):
 		
 		#atexit.register(self.goodbye, adjective='nice', name='Vindora.co')
 		#xbmc.executebuiltin("XBMC.Container.Update(path,replace)")
-		xbmc.executebuiltin("XBMC.ActivateWindow(10000)")
+		#xbmc.executebuiltin("XBMC.ActivateWindow(10000)")
 		#xbmc.executebuiltin("XBMC.ActivateWindow(WINDOW_DIALOG_NETWORK_SETUP)")
-		xbmc.sleep(10000000)
+		#xbmc.sleep(10000000)
 	#def goodbye(name, adjective):
 	#	print 'Goodbye, %s, it was %s to meet you.' % (name, adjective)
 		
@@ -290,11 +290,11 @@ if grabFTW().getCredentials() == "TRUE":
 			
 
  
-monitor = xbmc.Monitor()
+#monitor = xbmc.Monitor()
  
-while True:
-	if monitor.waitForAbort(1): # Sleep/wait for abort for 1 second.
-		break # Abort was requested while waiting. Exit the while loop.
+#while True:
+#	if monitor.waitForAbort(1): # Sleep/wait for abort for 1 second.
+#		break # Abort was requested while waiting. Exit the while loop.
 
 
 
