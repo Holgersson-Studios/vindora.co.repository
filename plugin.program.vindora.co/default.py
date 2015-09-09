@@ -18,7 +18,7 @@ import socket
 import requests.packages.urllib3
 from requests.packages.urllib3 import PoolManager, Timeout
 REMOTE_SERVER = "www.vindora.co"
-manager = PoolManager(10)
+manager = PoolManager(5)
 # deprecated:
 # xbmc.executebuiltin("xbmc.Reboot")
 
@@ -28,7 +28,7 @@ try:
 	host = socket.gethostbyname(REMOTE_SERVER)
 	# connect to the host -- tells us if the host is actually
 	# reachable
-	s = socket.create_connection((host, 80), 5)
+	s = socket.create_connection((host, 80), 2)
 	print "......--------- HALLELUJA!!!!"
 except:
 	print "......--------- FUCK FUCK FUCK FUCK!!!!"
@@ -290,11 +290,11 @@ if grabFTW().getCredentials() == "TRUE":
 			
 
  
-#monitor = xbmc.Monitor()
+monitor = xbmc.Monitor()
  
-#while True:
-#	if monitor.waitForAbort(1): # Sleep/wait for abort for 1 second.
-#		break # Abort was requested while waiting. Exit the while loop.
+while True:
+	if monitor.waitForAbort(1): # Sleep/wait for abort for 1 second.
+		break # Abort was requested while waiting. Exit the while loop.
 
 
 
