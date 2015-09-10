@@ -127,9 +127,9 @@ class grabFTW:
 		self.currenturl = urlmeta
 		htmlSource = None
 		print "[FTW] Finding URL: "+ urlmeta
-		#htmlSource = urllib2.urlopen(urlmeta).read()
-		r = requests.get(urlmeta)
-		htmlSource = r.text
+		htmlSource = urllib2.urlopen(urlmeta).read()
+		#r = requests.get(urlmeta)
+		#htmlSource = r.text
 		return htmlSource
 
 	def getCredentials(self):
@@ -197,10 +197,10 @@ class XBMCPlayer(xbmc.Player):
 player = XBMCPlayer(xbmc.PLAYER_CORE_DVDPLAYER)
 
 if grabFTW().getCredentials() == "TRUE":
-			#response = urllib2.urlopen(url + grabFTW().settings['username'])
-			response = requests.get(url + grabFTW().settings['username'])
-			#data = json.loads(response.read())
-			data = response.json()
+			response = urllib2.urlopen(url + grabFTW().settings['username'])
+			#response = requests.get(url + grabFTW().settings['username'])
+			data = json.loads(response.read())
+			#data = response.json()
 
 			playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
 			
@@ -233,11 +233,11 @@ if grabFTW().getCredentials() == "TRUE":
 				if grabFTW().getStatus() == "PLNWVD":
 					print "CLEAR______THE____STATUS_____:   " + grabFTW().clearStatus()
 
-					#response = urllib2.urlopen(url + grabFTW().settings['username'])
-					response = requests.get(url + grabFTW().settings['username'])
+					response = urllib2.urlopen(url + grabFTW().settings['username'])
+					#response = requests.get(url + grabFTW().settings['username'])
 			
-					#data = json.loads(response.read())
-					data = response.json()
+					data = json.loads(response.read())
+					#data = response.json()
 					pl.clear()
 			
 					s = 0
