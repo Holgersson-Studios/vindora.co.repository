@@ -15,10 +15,11 @@ import urllib
 import atexit
 from xml.etree import ElementTree
 import socket
-import requests.packages.urllib3
-from requests.packages.urllib3 import PoolManager, Timeout
+import requests
+#import requests.packages.urllib3
+#from requests.packages.urllib3 import PoolManager, Timeout
 REMOTE_SERVER = "www.vindora.co"
-manager = PoolManager(5)
+#manager = PoolManager(5)
 # deprecated:
 # xbmc.executebuiltin("xbmc.Reboot")
 
@@ -49,13 +50,14 @@ __settings__ = xbmcaddon.Addon(id='plugin.program.vindora.co')
 my_addon = xbmcaddon.Addon('plugin.program.vindora.co')
 addon_dir = xbmc.translatePath( my_addon.getAddonInfo('path') )
 sys.path.append(os.path.join( addon_dir, 'resources', 'lib' ) )
-http = requests.packages.urllib3.PoolManager()
+#http = requests.packages.urllib3.PoolManager()
 
 SETTINGS = sys.modules[ "__main__" ].__settings__
 
 
 
-vindora_src = "http://storage.googleapis.com/vindoras_final/screener"
+#vindora_src = "http://storage.googleapis.com/vindoras_final/screener"
+vindora_src = "http://appdev.milchglas-media.de/vindora/videos/screener/"
 vindora_th = "http://appdev.milchglas-media.de/vindora/videos/xbmcth/"
 url = "http://appdev.milchglas-media.de/vindora/php_vindora/getvindora.php?userid="
 
@@ -125,9 +127,9 @@ class grabFTW:
 		self.currenturl = urlmeta
 		htmlSource = None
 		print "[FTW] Finding URL: "+ urlmeta
-		htmlSource = urllib2.urlopen(urlmeta).read()
-		#r = requests.get(urlmeta)
-		#htmlSource = r.text
+		#htmlSource = urllib2.urlopen(urlmeta).read()
+		r = requests.get(urlmeta)
+		htmlSource = r.text
 		return htmlSource
 
 	def getCredentials(self):
@@ -195,9 +197,9 @@ class XBMCPlayer(xbmc.Player):
 player = XBMCPlayer(xbmc.PLAYER_CORE_DVDPLAYER)
 
 if grabFTW().getCredentials() == "TRUE":
-			#old response = urllib2.urlopen(url + grabFTW().settings['username'])
+			#response = urllib2.urlopen(url + grabFTW().settings['username'])
 			response = requests.get(url + grabFTW().settings['username'])
-			#old data = json.loads(response.read())
+			#data = json.loads(response.read())
 			data = response.json()
 
 			playlist = xbmc.PlayList(xbmc.PLAYLIST_VIDEO)
@@ -231,10 +233,10 @@ if grabFTW().getCredentials() == "TRUE":
 				if grabFTW().getStatus() == "PLNWVD":
 					print "CLEAR______THE____STATUS_____:   " + grabFTW().clearStatus()
 
-					#old response = urllib2.urlopen(url + grabFTW().settings['username'])
+					#response = urllib2.urlopen(url + grabFTW().settings['username'])
 					response = requests.get(url + grabFTW().settings['username'])
 			
-					#old data = json.loads(response.read())
+					#data = json.loads(response.read())
 					data = response.json()
 					pl.clear()
 			
@@ -279,7 +281,17 @@ if grabFTW().getCredentials() == "TRUE":
 					xbmc.sleep(8000)
 					xbmc.executebuiltin("xbmc.ShutDown")
 
-				
+				totaltime = xbmc.Player().getTotalTime()
+				playedtime = xbmc.Player().getTime()
+				por = totaltime - 15
+
+				print "_____________TOTALTIME : " + str(totaltime)
+				print "_____________PLAYED-TIME : " + str(playedtime)
+				print "_____________POINT OF RETURN : " + str(por)
+
+				if playedtime >= por:
+					print "SEEK SEEK SEEK SEEK SEEK SEEK"
+					xbmc.Player().seekTime(10)
 
 				xbmc.sleep(10000)
 			
